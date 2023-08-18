@@ -1,37 +1,42 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
 // import mmtimer from './assets/mmtimer.mp3';
 // import mmtimer2 from './assets/mmtimer2.mp3';
-import viteLogo from '/vite.svg';
+import mmjcd from './assets/mmjcd.png';
 import './App.css';
+import { Timer } from './Timer';
 
 function App() {
-  const [count, setCount] = useState(0);
+    const expiryTimestamp = new Date();
+    expiryTimestamp.setSeconds(expiryTimestamp.getSeconds() + 180);
+    const hoge = 1;
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount(count => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          うううおおおお Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  );
+    return (
+        <>
+            <h1>宝灯桃汁3分タイマー</h1>
+            <div>
+                <a href="https://houtoumomojiru.info/" target="_blank">
+                    <img
+                        src={mmjcd}
+                        className={`logo momojiru ${hoge > 0 ? 'on-play' : ''}`}
+                        alt="宝灯桃汁の顔"
+                    />
+                </a>
+            </div>
+            <div className="card">
+                <p>
+                    うううおおおお Edit <code>src/App.tsx</code> and save to
+                    test HMR
+                </p>
+                <Timer expiryTimestamp={expiryTimestamp} />
+                <input type="range" min={0} max={100} />
+            </div>
+            <footer className="footer">
+                つくったひと
+                <div>
+                    <a href="https://twitter.com/home">八雲アナグラ</a>
+                </div>
+            </footer>
+        </>
+    );
 }
 
 export default App;
