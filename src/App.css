@@ -31,6 +31,10 @@
     a:nth-of-type(1) .on-play {
         animation: logo-spin infinite 12s linear;
     }
+
+    a:nth-of-type(1) .on-pause {
+        animation-play-state: paused;
+    }
 }
 
 .card {
@@ -38,10 +42,17 @@
 }
 
 .footer {
-    position: fixed;
     left: 0;
     bottom: 3em;
     width: 100%;
     text-align: center;
     font-size: 0.8em;
+}
+
+.buttonSound {
+    justify-content: center;
+}
+
+.counter {
+    font-size: 10em;
 }
