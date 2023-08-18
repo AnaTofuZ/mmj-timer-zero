@@ -104,6 +104,7 @@ function App() {
                 <div>音楽</div>
                 <label htmlFor="m1">通常待機BGM</label>
                 <input
+                    id="m1"
                     type="radio"
                     name="music"
                     value={'m1'}
@@ -112,6 +113,7 @@ function App() {
                 />
                 <label htmlFor="m2">プレ配信待機BGM</label>
                 <input
+                    id="m2"
                     type="radio"
                     name="music"
                     value={'m2'}
