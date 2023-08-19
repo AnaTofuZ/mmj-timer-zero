@@ -69,7 +69,7 @@ function App() {
 
     return (
         <>
-            <h1>宝灯桃汁3分タイマー</h1>
+            <h1>宝灯桃汁<br className='br-sp'/>3分タイマー</h1>
             <div>
                 <a href="https://houtoumomojiru.info/" target="_blank">
                     <img
