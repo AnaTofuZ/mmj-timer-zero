@@ -15,7 +15,8 @@
         "react-dom": "^18.2.0",
         "react-timer-hook": "^3.0.7",
         "react-use-audio-player": "^2.1.1",
-        "unplugin-fonts": "^1.0.3"
+        "unplugin-fonts": "^1.0.3",
+        "use-konami": "^1.0.1"
     },
     "devDependencies": {
         "@types/react": "^18.2.15",

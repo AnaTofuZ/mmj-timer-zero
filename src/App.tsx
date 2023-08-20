@@ -1,10 +1,13 @@
 import mmtimer from './assets/mmtimer.mp3';
 import mmtimer2 from './assets/mmtimer2.mp3';
 import mmjcd from './assets/mmjcd.png';
+import boss from './assets/boss.png';
+import sireikan from './assets/sireikan.png';
 import './App.css';
 import React from 'react';
 import { Timer } from './Timer';
 import { useAudioPlayer } from 'react-use-audio-player';
+import useKonami from 'use-konami';
 
 function App() {
     const expiryTimestamp = new Date();
@@ -12,6 +15,19 @@ function App() {
 
     const { play, pause, load, stop, paused, stopped, playing, setVolume } =
         useAudioPlayer();
+
+    const cdImages = [mmjcd, boss, sireikan];
+    const [cdImageIndex, setCdImageIndex] = React.useState(0);
+
+    useKonami({
+        onUnlock: () => {
+            if (cdImageIndex < 2) {
+                setCdImageIndex(cdImageIndex+1)
+            } else {
+                setCdImageIndex(0)
+            }
+        }
+    })
 
     React.useEffect(() => {
         load(mmtimer, {
@@ -73,7 +89,7 @@ function App() {
             <div>
                 <a href="https://houtoumomojiru.info/" target="_blank">
                     <img
-                        src={mmjcd}
+                        src={cdImages[cdImageIndex]}
                         className={`logo momojiru 
                         ${isPlayCD ? 'on-play' : ''} 
                         ${paused ? 'on-pause' : ''}`}
