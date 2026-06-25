@@ -13,7 +13,7 @@ function App() {
     const expiryTimestamp = new Date();
     expiryTimestamp.setSeconds(expiryTimestamp.getSeconds() + 180);
 
-    const { play, pause, load, stop, paused, stopped, playing, setVolume } =
+    const { play, pause, load, stop, isPaused, isStopped, isPlaying, setVolume } =
         useAudioPlayer();
 
     const cdImages = [mmjcd, boss, sireikan];
@@ -43,10 +43,10 @@ function App() {
     const [isPlayCD, setIsPlayCD] = React.useState(false);
 
     React.useEffect(() => {
-        if (stopped) {
+        if (isStopped) {
             setIsPlayCD(false);
         }
-    }, [stopped]);
+    }, [isStopped]);
 
     const onMusicPlay = React.useCallback(() => {
         play();
@@ -92,7 +92,7 @@ function App() {
                         src={cdImages[cdImageIndex]}
                         className={`logo momojiru 
                         ${isPlayCD ? 'on-play' : ''} 
-                        ${paused ? 'on-pause' : ''}`}
+                        ${isPaused ? 'on-pause' : ''}`}
                         alt="宝灯桃汁の顔"
                     />
                 </a>
@@ -102,7 +102,7 @@ function App() {
                 onMusicPlay={onMusicPlay}
                 onMusicPause={pause}
                 onMusicResume={onMusicResume}
-                isStartDisabled={playing}
+                isStartDisabled={isPlaying}
                 shouldReset={shouldReset}
                 reset={reset}
             />
