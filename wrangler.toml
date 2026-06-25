@@ -1,0 +1,6 @@
+name = "mmj-timer-zero"
+compatibility_date = "2026-06-25"
+
+[assets]
+directory = "./dist"
+
